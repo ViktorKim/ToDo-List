@@ -1,14 +1,27 @@
 <template>
-    <v-toolbar app>
-        <v-toolbar-title v-text="title"></v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn flat>Link One</v-btn>
-            <v-btn flat>Link Two</v-btn>
-            <v-btn flat>Link Three</v-btn>
-        </v-toolbar-items>
-        <v-toolbar-side-icon></v-toolbar-side-icon>
-    </v-toolbar>
+    <header>
+        <v-navigation-drawer fixed v-model="drawer" right app>
+            <v-list dense>
+                <v-list-tile v-for="item of menuItems">
+                    <v-list-tile-action>
+                        <v-icon>{{ item.icon }}</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>{{ item.name }}</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
+        </v-navigation-drawer>
+
+        <v-toolbar app>
+            <v-toolbar-title v-text="title"></v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items class="hidden-sm-and-down">
+                <v-btn flat v-for="item in menuItems">{{item.name}}</v-btn>
+            </v-toolbar-items>
+            <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
+        </v-toolbar>
+    </header>
 </template>
 
 <script>
@@ -16,8 +29,22 @@
         name: "AppHeader",
         data() {
             return {
-                title: 'Todo List'
+                title: 'Todo List',
+                menuItems: [
+                    {
+                        name: 'My Lists',
+                        icon: 'view_lists',
+                    },
+                    {
+                        name: 'Add Todo List',
+                        icon: 'note_add',
+                    },
+                ],
+                drawer: null
             }
+        },
+        props: {
+            source: String
         }
     }
 </script>
