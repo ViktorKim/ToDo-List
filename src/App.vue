@@ -5,6 +5,7 @@
         <v-content>
             <v-container fluid>
                 <HelloWorld></HelloWorld>
+                <AddListModal></AddListModal>
             </v-container>
         </v-content>
 
@@ -16,11 +17,13 @@
     import HelloWorld from './components/HelloWorld'
     import AppHeader from './components/AppHeader'
     import AppFooter from './components/AppFooter'
+    import AddListModal from './components/AddListModal'
+
 
     export default {
         name: 'App',
         components: {
-            HelloWorld, AppHeader, AppFooter
+            HelloWorld, AppHeader, AppFooter, AddListModal
         },
     }
 </script>
