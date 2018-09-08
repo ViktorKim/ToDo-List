@@ -1,8 +1,6 @@
 <template>
     <v-app>
-        <v-toolbar app>
-            <v-toolbar-title v-text="title"></v-toolbar-title>
-        </v-toolbar>
+        <AppHeader></AppHeader>
 
         <v-content>
             <v-container fluid>
@@ -10,26 +8,19 @@
             </v-container>
         </v-content>
 
-        <v-footer app :fixed="true">
-            <v-layout justify-center>
-                <span>Copyright &copy; 2018</span>
-            </v-layout>
-        </v-footer>
+        <AppFooter></AppFooter>
     </v-app>
 </template>
 
 <script>
     import HelloWorld from './components/HelloWorld'
+    import AppHeader from './components/AppHeader'
+    import AppFooter from './components/AppFooter'
 
     export default {
         name: 'App',
         components: {
-            HelloWorld
+            HelloWorld, AppHeader, AppFooter
         },
-        data() {
-            return {
-                title: 'Todo List'
-            }
-        }
     }
 </script>
