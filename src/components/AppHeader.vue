@@ -1,6 +1,6 @@
 <template>
     <header>
-        <v-navigation-drawer fixed v-model="drawer" right app>
+        <v-navigation-drawer temporary v-model="drawer" right app>
             <v-list dense>
                 <v-list-tile v-for="item of menuItems">
                     <v-list-tile-action>
