@@ -6,6 +6,7 @@
             <v-container fluid>
                 <HelloWorld></HelloWorld>
                 <AddListModal></AddListModal>
+                <ListsPage></ListsPage>
             </v-container>
         </v-content>
 
@@ -18,12 +19,13 @@
     import AppHeader from './components/AppHeader'
     import AppFooter from './components/AppFooter'
     import AddListModal from './components/AddListModal'
+    import ListsPage from './components/ListsPage'
 
 
     export default {
         name: 'App',
         components: {
-            HelloWorld, AppHeader, AppFooter, AddListModal
+            HelloWorld, AppHeader, AppFooter, AddListModal, ListsPage
         },
     }
 </script>
