@@ -17,7 +17,7 @@
             <v-toolbar-title v-text="title"></v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
-                <v-btn flat v-for="item in menuItems">{{item.name}}</v-btn>
+                <v-btn flat v-for="item in menuItems" :key="item.id">{{item.name}}</v-btn>
             </v-toolbar-items>
             <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
         </v-toolbar>
