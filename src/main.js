@@ -16,7 +16,7 @@ new Vue({
  */
 (function() {
     if (localStorage.getItem('todoLists') === null){
-        localStorage.setItem('todoLists', "{}");
+        localStorage.setItem('todoLists', "[]");
     }
 }());
 
@@ -25,7 +25,6 @@ new Vue({
  *
  * @param todoListName
  *
- * @return _message - error message object
  */
 window.saveTodoList = function(todoListName) {
     let _message = {};
@@ -36,15 +35,22 @@ window.saveTodoList = function(todoListName) {
         };
     } else {
         let _storageData = JSON.parse(localStorage.getItem('todoLists'));
-        if (_storageData[todoListName] !== undefined){
-            _message = {
-                status: 'error',
-                text: 'This list already exists',
-            };
-        } else {
-            _storageData[todoListName] = '';
-            localStorage.setItem('todoLists', JSON.stringify(_storageData));
+
+        for(let i = 0; i < _storageData.length; ++i){
+            if ((_storageData[i].name).toLowerCase() === todoListName.toLowerCase()){
+                _message = {
+                    status: 'error',
+                    text: 'This list already exists',
+                };
+                return _message;
+            }
         }
+
+        _storageData.push({
+            name: todoListName,
+            items: []
+        });
+        localStorage.setItem('todoLists', JSON.stringify(_storageData));
     }
 
     return _message;
