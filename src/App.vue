@@ -1,12 +1,15 @@
 <template>
   <div id="app">
+    <page></page>
   </div>
 </template>
 
 <script>
+  import page from './components/page/Page';
 export default {
   name: 'app',
   components: {
+      page
   }
 }
 </script>
