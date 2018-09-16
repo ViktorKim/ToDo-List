@@ -52,7 +52,7 @@ export default {
             let _data = Vue.prototype.$_getStorageData();
             let _next_id = _data['next_id'];
 
-            if (isEmpty(_data['todos']) || !isTodoExists(_name, _data['todos'])){
+            if (isEmpty(_data['todos']) || !isTodoExists(_name, _data['todos'])) {
                 _data['todos'][_next_id] = {
                     is_done: false,
                     name: _name,
@@ -86,7 +86,7 @@ export default {
          * @param obj
          * @return {boolean}
          */
-        let isEmpty = function(obj) {
+        let isEmpty = function (obj) {
             for (let key in obj) {
                 return false;
             }
@@ -101,8 +101,8 @@ export default {
          * @return {boolean}
          */
         let isTodoExists = function (name, todos) {
-            for(let key in todos){
-                if (todos[key].name === name){
+            for (let key in todos) {
+                if (todos[key].name === name) {
                     return true;
                 }
             }

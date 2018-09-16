@@ -1,6 +1,7 @@
 <template>
     <ul class="list">
-        <listItem v-for="(todo, id) in todos" :item-name="todo.name" :item-id="'list-item-'+id" :key="todo.id"></listItem>
+        <listItem v-for="(todo, id) in todos" :item-name="todo.name" :item-id="'list-item-'+id"
+                  :key="todo.id"></listItem>
     </ul>
 </template>
 
@@ -13,8 +14,7 @@
             listItem
         },
         data: function () {
-            return{
-            }
+            return {}
         },
         computed: {
             todos: function () {
@@ -25,7 +25,7 @@
 </script>
 
 <style scoped lang="scss">
-    .list{
+    .list {
         list-style: none;
         margin: 0;
         padding: 0;

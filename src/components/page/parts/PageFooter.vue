@@ -1,6 +1,6 @@
 <template>
     <footer class="page__footer">
-        <div class="container text-center">
+        <div class="container">
             Created by Victor Kim &copy; 2018
         </div>
     </footer>
@@ -13,5 +13,8 @@
 </script>
 
 <style scoped>
-
+    .page__footer {
+        text-align: center;
+        background-color: lightblue;
+    }
 </style>
